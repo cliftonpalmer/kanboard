@@ -11,6 +11,10 @@ services:
 volumes:
     kanboard_data:
         driver: local
+        driver_opts:
+            o: bind
+            type: none
+            device: /mnt/kanboard_data
     kanboard_plugins:
         driver: local
     kanboard_ssl:
