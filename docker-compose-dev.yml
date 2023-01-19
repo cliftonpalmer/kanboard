@@ -1,6 +1,6 @@
 version: '3'
 services:
-    kanboard:
+    web:
         image: kanboard/kanboard:v1.2.26
         ports:
         - 80:80
