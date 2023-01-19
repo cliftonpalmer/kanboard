@@ -6,6 +6,13 @@ networks:
 services:
     web:
         image: kanboard/kanboard:v1.2.26
+        restart: on-failure
+        deploy:
+            restart_policy:
+                condition: on-failure
+                delay: 5s
+                max_attempts: 5
+                window: 10s
         volumes:
         - kanboard_data:/var/www/app/data
         - kanboard_plugins:/var/www/app/plugins
