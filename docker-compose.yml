@@ -1,11 +1,16 @@
 version: '3'
+networks:
+    proxy:
+        external: true
 services:
-    kanboard:
+    web:
         image: kanboard/kanboard:v1.2.26
         volumes:
         - kanboard_data:/var/www/app/data
         - kanboard_plugins:/var/www/app/plugins
         - kanboard_ssl:/etc/nginx/ssl
+        networks:
+        - proxy
 volumes:
     kanboard_data:
         driver: local
